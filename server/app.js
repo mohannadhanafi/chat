@@ -1,4 +1,8 @@
+const express = require('express');
+const path = require('path');
 const WebSocket = require('ws');
+
+const app = express();
 
 const wss = new WebSocket.Server({ port: 8989 })
 
@@ -38,3 +42,15 @@ wss.on('connection', (ws) => {
     broadcast({ type: 'USERS_LIST', users }, ws)
   })
 })
+
+app.disable('x-powered-by')
+.set('port', process.env.PORT || 5000)
+
+.use(express.static(path.join(__dirname, '..', 'build')))
+.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'))
+});
+
+const port = app.get('port');
+
+app.listen(port, () => console.log(`the server started on port ${port}`));
