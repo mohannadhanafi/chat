@@ -8,4 +8,8 @@ A small chat app
 
 ## How to run locally
 - clone the repo
+- run ``` npm i ```
+- run ``` cd client ```
+- run ``` npm run build ```
+- run ``` cd .. ```
 - run ``` npm start ```
