@@ -46,9 +46,9 @@ wss.on('connection', (ws) => {
 app.disable('x-powered-by')
 .set('port', process.env.PORT || 5000)
 
-.use(express.static(path.join(__dirname, '..', 'build')))
+.use(express.static(path.join(__dirname, '..', 'client', 'build')))
 .get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'))
+  res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
 });
 
 const port = app.get('port');
