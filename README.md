@@ -13,3 +13,11 @@ A small chat app
 - run ``` npm run build ```
 - run ``` cd .. ```
 - run ``` npm start ```
+
+## Techs used
+- Reactjs
+- Nodejs
+- Expressjs
+- Redux
+- Redux-Saga
+- Web Socket
